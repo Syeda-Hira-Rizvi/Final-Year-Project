@@ -170,7 +170,7 @@ const DonorCentreSection = ({ onNext, onBack, setSelectedHospitalId, setSelected
   const fetchHospitals = async (area) => {
     try {
       const token = localStorage.getItem("token"); // Assuming authentication token is stored in localStorage
-      const response = await axios.get("http://localhost:8000/api/v1/hospitals/nearby", {
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/hospitals/nearby`, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header
         },

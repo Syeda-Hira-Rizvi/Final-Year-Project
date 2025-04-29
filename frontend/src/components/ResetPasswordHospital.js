@@ -145,7 +145,7 @@ function ResetPassword() {
     }
 
     try {
-      await axios.put(`http://localhost:8000/api/v1/hospital/reset-password/${token}`, {
+      await axios.put(`h${process.env.REACT_APP_BASE_URL}/hospital/reset-password/${token}`, {
         password: newPassword,
         confirmPassword,
       });

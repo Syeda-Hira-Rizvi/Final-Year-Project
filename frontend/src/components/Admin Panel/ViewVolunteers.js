@@ -174,7 +174,7 @@ const ViewVolunteers = () => {
     setLoading(true);
 
     try {
-      const { data } = await axios.get("http://localhost:8000/api/v1/get-all-volunteers", {
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/get-all-volunteers`, {
         withCredentials: true,
       });
       setVolunteers(data.volunteers);
@@ -187,7 +187,7 @@ const ViewVolunteers = () => {
 
   const deleteVolunteer = async (id) => {
     try {
-      const { data } = await axios.put(`http://localhost:8000/api/v1/remove-volunteer-status/${id}`, {
+      const { data } = await axios.put(`${process.env.REACT_APP_BASE_URL}/remove-volunteer-status/${id}`, {
         withCredentials: true,
       });
       setVolunteers(volunteers.filter((v) => v._id !== id));
@@ -235,7 +235,7 @@ const ViewVolunteers = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:8000/api/v1/edit-volunteer/${_id}`,
+        `${process.env.REACT_APP_BASE_URL}/edit-volunteer/${_id}`,
         updatedData,
         { withCredentials: true }
       );

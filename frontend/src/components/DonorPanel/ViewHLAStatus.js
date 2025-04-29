@@ -140,7 +140,7 @@ const ViewHLAStatus = () => {
     const fetchHLAStatus = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:8000/api/v1/view-hla-status', {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/view-hla-status`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

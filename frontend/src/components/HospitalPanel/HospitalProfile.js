@@ -162,7 +162,7 @@ function HospitalProfile() {
 
   const fetchHospitalInfo = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/api/v1/hospital-profile");
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/hospital-profile`);
       console.log(data); // Check API response
       setHospitalInfo(data.hospital);
 
@@ -197,7 +197,7 @@ function HospitalProfile() {
 
   const handleSave = async () => {
     try {
-      const { data } = await axios.put("http://localhost:8000/api/v1/hospital-profile/update", {
+      const { data } = await axios.put(`${process.env.REACT_APP_BASE_URL}/hospital-profile/update`, {
         address: hospitalInfo.user?.address,
         contactNumber: hospitalInfo.user?.contactNumber,
       });
@@ -257,7 +257,7 @@ function HospitalProfile() {
     }
 
     try {
-      const { data } = await axios.put("http://localhost:8000/api/v1/hospital/change-password", {
+      const { data } = await axios.put(`${process.env.REACT_APP_BASE_URL}/hospital/change-password`, {
         currentPassword: password.current,
         newPassword: password.new,
         confirmPassword: password.confirm,

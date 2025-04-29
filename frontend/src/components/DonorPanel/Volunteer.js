@@ -135,7 +135,7 @@ function VolunteerApplication() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/apply-as-volunteer",
+        `${process.env.REACT_APP_BASE_URL}/apply-as-volunteer`,
         {
           reasonForApplying: formData.message,
           experience: formData.experience,

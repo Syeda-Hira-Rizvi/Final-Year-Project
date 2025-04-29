@@ -80,7 +80,7 @@ const ConfirmationSection = ({ onBack, hospitalId, hospitalName, eligibilityStat
 
       console.log("Sending appointmentData:", appointmentData); // Debugging Log
 
-      const response = await axios.post("http://localhost:8000/api/v1/appointment/blood-donation", appointmentData);
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/appointment/blood-donation`, appointmentData);
 
       if (response.data.success) {
         setSuccessMessage("Appointment successfully booked!");

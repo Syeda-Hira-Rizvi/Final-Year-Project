@@ -182,7 +182,7 @@ const ViewDonors = () => {
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/get-all-donors", {
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/get-all-donors`, {
         withCredentials: true,
       });
       setDonors(response.data.donors);
@@ -195,7 +195,7 @@ const ViewDonors = () => {
 
   const deleteDonor = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:8000/api/v1/delete-donor/${id}`, {
+      const { data } = await axios.delete(`${process.env.REACT_APP_BASE_URL}/delete-donor/${id}`, {
         withCredentials: true,
       });
       console.log("Response from server:", data);
@@ -231,7 +231,7 @@ const ViewDonors = () => {
     }
 
     try {
-      console.log(`Sending PUT request to: http://localhost:8000/api/v1/edit-donor/${currentDonor._id}`);
+      console.log(`Sending PUT request to: ${process.env.REACT_APP_BASE_URL}/edit-donor/${currentDonor._id}`);
 
       // const {data} = await axios.put(
       //     `http://localhost:8000/api/v1/edit-donor/${currentDonor._id}`,
@@ -249,7 +249,7 @@ const ViewDonors = () => {
       };
 
       const { data } = await axios.put(
-        `http://localhost:8000/api/v1/edit-donor/${_id}`,
+        `${process.env.REACT_APP_BASE_URL}/edit-donor/${_id}`,
         updatedDonorData,
         { withCredentials: true }
       );

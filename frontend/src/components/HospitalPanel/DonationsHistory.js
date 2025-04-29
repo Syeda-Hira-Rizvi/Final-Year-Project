@@ -93,7 +93,7 @@ const DonationsHistory = () => {
     const fetchDonations = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:8000/api/v1/donations', {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/donations`, {
           withCredentials: true,
         });
         setDonations(response.data.donations);

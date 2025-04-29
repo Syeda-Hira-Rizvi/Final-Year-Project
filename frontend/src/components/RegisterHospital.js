@@ -289,7 +289,7 @@ const RegisterHospital = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/register-hospital",
+        `${process.env.REACT_APP_BASE_URL}/register-hospital`,
         hospitalData
       );
 

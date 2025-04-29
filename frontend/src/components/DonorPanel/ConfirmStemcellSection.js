@@ -78,7 +78,7 @@ const ConfirmStemcellSection = ({ onBack, hospitalId, hospitalName, appointmentD
 
       console.log("Sending appointmentData:", appointmentData); // Debugging Log
 
-      const response = await axios.post("http://localhost:8000/api/v1/appointment/stem-cell-donation", appointmentData);
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/appointment/stem-cell-donation`, appointmentData);
 
       if (response.data.success) {
         setSuccessMessage("Appointment successfully booked!");

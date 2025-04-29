@@ -152,7 +152,7 @@ const SlotManager = () => {
 
     //RECENTLY ADDED
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/add-slots", {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/add-slots`, {
         yearWide,
         weekWide,
         monthWide,

@@ -181,7 +181,7 @@ function LoginHospital() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/v1/hospital/forgot-password", { email });
+      const { data } = await axios.post(`${process.env.REACT_APP_BASE_URL}/hospital/forgot-password`, { email });
       setSuccessMessage(data.message);
       setErrorMessage("");
       setEmail("");
@@ -214,7 +214,7 @@ function LoginHospital() {
     if (!validateLogin()) return;
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/v1/login-hospital", {
+      const { data } = await axios.post(`${process.env.REACT_APP_BASE_URL}/login-hospital`, {
         email,
         password,
       });

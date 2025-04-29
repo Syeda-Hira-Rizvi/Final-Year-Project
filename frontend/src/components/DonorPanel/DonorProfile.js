@@ -166,7 +166,7 @@ function DonorProfile() {
 
   const fetchDonorInfo = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/api/v1/profile", { withCredentials: true });
+      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/profile`, { withCredentials: true });
       console.log(data);
       const volunteerApps = data.donor.volunteerApplications || [];
       const latestApp = volunteerApps[volunteerApps.length - 1]; // Get the last application
@@ -221,7 +221,7 @@ function DonorProfile() {
 
   const handleSave = async () => {
     try {
-      const { data } = await axios.put("http://localhost:8000/api/v1/profile/update", {
+      const { data } = await axios.put(`${process.env.REACT_APP_BASE_URL}/profile/update`, {
         address: donorInfo.address,
         contactNumber: donorInfo.contactNumber,
       }, { withCredentials: true });
@@ -259,7 +259,7 @@ function DonorProfile() {
     }
 
     try {
-      const { data } = await axios.put("http://localhost:8000/api/v1/change-password", {
+      const { data } = await axios.put(`${process.env.REACT_APP_BASE_URL}/change-password`, {
         currentPassword: password.current,
         newPassword: password.new,
         confirmPassword: password.confirmNew,

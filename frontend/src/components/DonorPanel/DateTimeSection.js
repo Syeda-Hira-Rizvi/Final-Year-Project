@@ -187,7 +187,7 @@ const DateTimeSection = ({ hospitalId, onNext, onBack, setAppointmentDate, setAp
 
     try {
       console.log("Fetching availability for:", hospitalId); // Debugging
-      const response = await axios.get(`http://localhost:8000/api/v1/availability`, {
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/availability`, {
         params: { hospitalId }, //Directly hospitalId pass karein
       });
       console.log("API Response:", response.data); // Debugging

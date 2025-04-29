@@ -89,7 +89,7 @@ const ViewAppointments = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/get-all-appointments-admin",
+          `${process.env.REACT_APP_BASE_URL}/get-all-appointments-admin`,
           { withCredentials: true }
         );
         setAppointments(response.data.appointments);

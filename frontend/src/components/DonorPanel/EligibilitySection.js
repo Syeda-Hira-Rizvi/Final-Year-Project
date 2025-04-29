@@ -242,7 +242,7 @@ const EligibilitySection = ({ onNext }) => {
 
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/check-eligibility",
+          `${process.env.REACT_APP_BASE_URL}/check-eligibility`,
           { answers: selectedAnswers },
           {
             headers: {

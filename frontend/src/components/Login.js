@@ -182,7 +182,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/v1/forgot-password", { email });
+      const { data } = await axios.post(`${process.env.REACT_APP_BASE_URL}/forgot-password`, { email });
       setSuccessMessage(data.message);
       setErrorMessage("");
       setEmail("");
@@ -237,7 +237,7 @@ function Login() {
     if (!validateLogin()) return;
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/v1/login", {
+      const { data } = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`, {
         email,
         password,
       });

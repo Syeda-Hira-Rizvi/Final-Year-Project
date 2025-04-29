@@ -104,7 +104,7 @@ const ManageAppointments = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/donor-appointments", { withCredentials: true });
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/donor-appointments`, { withCredentials: true });
 
       const sortedAppointments = response.data.appointments.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate));
 
@@ -121,7 +121,7 @@ const ManageAppointments = () => {
   const handleCancelAppointment = async (appointmentId) => {
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/v1/appointment/cancel-appointment/${appointmentId}`,
+        `${process.env.REACT_APP_BASE_URL}/appointment/cancel-appointment/${appointmentId}`,
         {},
         { withCredentials: true }
       );

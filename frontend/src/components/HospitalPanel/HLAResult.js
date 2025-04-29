@@ -119,7 +119,7 @@ function HLAResult() {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/v1/hla-testing-donations', {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/hla-testing-donations`, {
           withCredentials: true,
         });
 
@@ -150,7 +150,7 @@ function HLAResult() {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/upload-HLA-result', hlaData, {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/upload-HLA-result`, hlaData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',

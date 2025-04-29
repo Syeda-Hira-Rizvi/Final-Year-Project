@@ -93,7 +93,7 @@ const HLARecords = () => {
     const fetchHLARecords = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:8000/api/v1/HLA-records', {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/HLA-records`, {
           withCredentials: true, // Ensures authentication
         });
         setHLARecords(response.data.data); // Extracting the 'data' array from API response

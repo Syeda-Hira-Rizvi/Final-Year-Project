@@ -230,7 +230,7 @@ const Register = () => {
 
     try {
       // const response = await axios.post(`${BASE_URL}/api/v1/register`, donorData);
-      const response = await axios.post('http://localhost:8000/api/v1/register', donorData);
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/register`, donorData);
       console.log("Registration successful:", response.data);
 
       //RECENTLY ADDED

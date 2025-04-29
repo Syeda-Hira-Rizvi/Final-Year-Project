@@ -163,7 +163,7 @@ const AddVolunteers = () => {
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/get-volunteer-applications", {
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/get-volunteer-applications`, {
         withCredentials: true, // Include cookies if using authentication
       });
 
@@ -202,7 +202,7 @@ const AddVolunteers = () => {
 
   const acceptApplication = async (id) => {
     try {
-      const response = await axios.put(`http://localhost:8000/api/v1/volunteers/${id}/accept`, {}, { withCredentials: true });
+      const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/volunteers/${id}/accept`, {}, { withCredentials: true });
 
       if (response.data.success) {
         setVolunteers(
@@ -218,7 +218,7 @@ const AddVolunteers = () => {
 
   const rejectApplication = async (id) => {
     try {
-      const response = await axios.put(`http://localhost:8000/api/v1/volunteers/${id}/reject`, {}, { withCredentials: true });
+      const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/volunteers/${id}/reject`, {}, { withCredentials: true });
 
       if (response.data.success) {
         setVolunteers(

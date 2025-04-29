@@ -110,7 +110,7 @@ const CreateDrive = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/create-blood-drive",
+        `${process.env.REACT_APP_BASE_URL}/create-blood-drive`,
         {
           driveName: driveDetails.name,
           location: driveDetails.location,

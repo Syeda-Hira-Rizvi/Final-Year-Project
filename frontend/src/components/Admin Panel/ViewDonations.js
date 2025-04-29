@@ -84,7 +84,7 @@ const ViewDonations = () => {
       setLoading(true);
 
       try {
-        const { data } = await axios.get('http://localhost:8000/api/v1/get-all-donations-admin', {
+        const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/get-all-donations-admin`, {
           withCredentials: true, // If authentication is required
         });
         setDonations(data.donations);

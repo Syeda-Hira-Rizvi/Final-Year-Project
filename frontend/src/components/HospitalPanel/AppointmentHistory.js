@@ -92,7 +92,7 @@ const AppointmentHistory = () => {
     const fetchAppointments = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/appointments`, {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/appointments`, {
           withCredentials: true, // Send credentials for authentication
         });
         setAppointments(response.data.appointments);

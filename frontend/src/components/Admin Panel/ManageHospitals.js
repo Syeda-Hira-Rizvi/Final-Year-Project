@@ -172,7 +172,7 @@ function ManageHospitals() {
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/get-all-hospitals", {
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/get-all-hospitals`, {
         withCredentials: true,
       });
       console.log("API Response:", response.data);
@@ -186,7 +186,7 @@ function ManageHospitals() {
 
   const deleteHospital = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:8000/api/v1/delete-hospital/${id}`, {
+      const { data } = await axios.delete(`${process.env.REACT_APP_BASE_URL}/delete-hospital/${id}`, {
         withCredentials: true,
       });
       console.log("Response from server:", data);
@@ -274,7 +274,7 @@ function ManageHospitals() {
       };
 
       const { data } = await axios.put(
-        `http://localhost:8000/api/v1/edit-hospital/${_id}`,
+        `${process.env.REACT_APP_BASE_URL}/edit-hospital/${_id}`,
         payload,
         { withCredentials: true }
       );

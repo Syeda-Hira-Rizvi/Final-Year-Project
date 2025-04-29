@@ -120,7 +120,7 @@ function BloodDrive() {
   useEffect(() => {
     const fetchBloodDrives = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/v1/blood-drives', {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/blood-drives`, {
           withCredentials: true,
         });
 

@@ -92,7 +92,7 @@ const ManageVolunteers = () => {
       setLoading(true);
 
       try {
-        const { data } = await axios.get('http://localhost:8000/api/v1/hospital-volunteers', {
+        const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/hospital-volunteers`, {
           withCredentials: true,
         });
         setVolunteers(data.volunteers);
