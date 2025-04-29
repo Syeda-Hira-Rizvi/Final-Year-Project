@@ -20,7 +20,6 @@ import ViewAppointments from "./ViewAppointments";
 import ViewDonors from "./ViewDonors";
 import ViewVolunteers from "./ViewVolunteers";
 import ViewDonations from "./ViewDonations";
-import HlaData from "./HlaData";
 
 // Styled Components
 const Container = styled.div`
