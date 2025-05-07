@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "./config/config.env" });
 const express = require('express');
 const cors = require("cors");
 const app = express();
@@ -7,10 +8,12 @@ const cookieParser = require('cookie-parser');
 
 //cors
 //app.use(cors());
+//console.log("CORS origin:", process.env.FRONTEND_URL);
+
 
 // Enable CORS
 app.use(cors({
-  origin: "http://localhost:3000", // Frontend's URL (adjust as needed)
+  origin: process.env.FRONTEND_URL, // Frontend's URL (adjust as needed)
   credentials: true, // Allow cookies to be sent with cross-origin requests
 }));
 
