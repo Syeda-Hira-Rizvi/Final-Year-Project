@@ -1,6 +1,6 @@
 const app = require("./app");
 const dotenv = require("dotenv");
-const dbConnection = require("./config/db");
+// const dbConnection = require("./config/db");
 
 dotenv.config({ path: './config/config.env' });
 
@@ -11,7 +11,7 @@ require("./jobs/cronJobs");
 const PORT = process.env.PORT;
 
 //Database
-dbConnection();
+// dbConnection();
 
 //Server
 app.listen(PORT, () => {

@@ -4,7 +4,11 @@ const cors = require("cors");
 const app = express();
 const errorMiddleware = require("./middlewares/error");
 const cookieParser = require('cookie-parser');
+const dbConnection = require("./config/db");
 
+
+//Database
+dbConnection();
 
 //cors
 //app.use(cors());
@@ -42,6 +46,7 @@ app.get('/', (req, res) => {
 const user = require("./routes/donorRoutes");
 const hospital = require("./routes/hospitalRoutes");
 const admin = require("./routes/adminRoutes");
+
 app.use("/api/v1", user);
 app.use("/api/v1", hospital);
 app.use("/api/v1", admin);
