@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser');
 
 // Enable CORS
 app.use(cors({
-  origin: process.env.FRONTEND_URL, // Frontend's URL (adjust as needed)
+  origin: ["http://localhost:3000","https://integrated-life-bridge-frontend.vercel.app"], // Frontend's URL (adjust as needed)
   credentials: true, // Allow cookies to be sent with cross-origin requests
 }));
 
