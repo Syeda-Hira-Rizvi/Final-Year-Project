@@ -33,6 +33,10 @@ app.use(cookieParser());
 //   next();
 // });
 
+app.get('/', (req, res) => {
+  res.status(200).json({ message: "Backend server is working properly!" });
+});
+
 
 //Route Imports
 const user = require("./routes/donorRoutes");
